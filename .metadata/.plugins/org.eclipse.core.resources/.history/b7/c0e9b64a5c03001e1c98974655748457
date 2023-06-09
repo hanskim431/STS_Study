@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file='../layout/header.jsp' %>
+
+<%-- JSP 주석 --%>
+<!-- HTML 주석 -->
+
+<div class="container">
+	<form action="${contextPath}/sample02/sampleProcced" method="post">
+		번호 : <input type="text" name="id"><br>
+		제목 : <input type="text" name="title"><br>
+		내용 : <input type="text" name="content"><br>
+		<button>전송</button>
+	</form>
+</div>
+
+<%@ include file='../layout/footer.jsp' %>

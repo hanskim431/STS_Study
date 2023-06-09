@@ -1,0 +1,9 @@
+package domain;
+
+@
+public class MemberVO {
+
+	private String id;
+	private String email;
+	
+}

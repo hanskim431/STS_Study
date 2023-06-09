@@ -1,0 +1,80 @@
+package spring.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
+
+@Component // Bean으로 등록
+public class MemberDaoMariaDB implements MemberDao {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+//	@Autowired 
+	public MemberDaoMariaDB(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+
+//	class MemberMapper implements RowMapper<Member> {
+//
+//		@Override
+//		public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+//			Member member = new Member(
+//					rs.getLong("id"), 
+//					rs.getString("email"),
+//					rs.getString("password"), 
+//					rs.getString("name"), 
+//					rs.getDate("regdate"));
+//			return member;
+//		}
+//	}
+	
+	// ���ٽ� (�Ű���) -> {�ٵ�}
+	RowMapper<Member> memberMapper = (rs,rowNum)->{
+		return new Member(
+				rs.getLong("id"), 
+				rs.getString("email"),
+				rs.getString("password"), 
+				rs.getString("name"), 
+				rs.getDate("regdate"));
+	};
+	
+	@Override
+	public Member selectByEmail(String email) {
+		List<Member> result = jdbcTemplate.query("select * from member where email=?", memberMapper, email);
+		return result.isEmpty() ? null : result.get(2);
+	}
+
+	@Override
+	public List<Member> selectAll() {
+//		List<Member> list = jdbcTemplate.query("select * from member", memberMapper);
+//		return list;
+		return jdbcTemplate.query("select * from member", memberMapper);
+	}
+
+	@Override
+	public void insert(Member member) {
+		jdbcTemplate.update("insert into member(email,password,name) values (?,?,?)",
+				member.getEmail(), member.getPassword(), member.getName());
+	}
+
+	@Override
+	public void update(Member member) {
+		jdbcTemplate.update("update member set password=? where email=?",
+				member.getPassword(), member.getEmail());
+	}
+
+	@Override
+	public void delete(String email) {
+		jdbcTemplate.update("delete from member where email=?", email);
+		
+	}
+	
+
+}

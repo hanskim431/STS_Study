@@ -1,0 +1,17 @@
+package proxy;
+
+public class ProxyBookService implements BookService {
+
+	@Override
+	public void createBook() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void pulishBook() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

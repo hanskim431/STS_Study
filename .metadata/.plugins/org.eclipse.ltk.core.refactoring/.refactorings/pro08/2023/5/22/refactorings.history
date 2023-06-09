@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;InitParamServlet.java&apos; to &apos;sec06.ex01.InitParamServlet.java&apos;&#x0D;&#x0A;- Original project: &apos;pro08&apos;&#x0D;&#x0A;- Destination element: &apos;sec06.ex01.InitParamServlet.java&apos;&#x0D;&#x0A;- Original element: &apos;sec06.ex01.InitParamServlet.java&apos;" description="Copy compilation unit" destination="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;sec06.ex01{InitParamServlet.java" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;sec06.ex01{InitParamServlet.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1685512475813" units="1" version="1.0"/>
+</session>

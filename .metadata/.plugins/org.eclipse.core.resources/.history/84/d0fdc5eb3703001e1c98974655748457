@@ -1,0 +1,6 @@
+package com.jafa.config;
+
+// WebConfig : 웹 서블릿을 불러오는 것
+public class WebConfig {
+
+}

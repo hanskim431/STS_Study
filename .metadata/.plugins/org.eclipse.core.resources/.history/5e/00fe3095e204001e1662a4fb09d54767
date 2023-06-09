@@ -1,0 +1,17 @@
+package com.jafa.controller;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/sample07")
+public class SampleController07 {
+	
+	@GetMapping("/setCookie")
+	public String setCookie(HttpServletResponse response) {
+		
+	}
+}

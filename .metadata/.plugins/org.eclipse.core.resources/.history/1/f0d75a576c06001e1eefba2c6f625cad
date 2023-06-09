@@ -1,0 +1,8 @@
+package form;
+
+public class FormCommand {
+	private String loginType; // 회원 유형 
+	private String jobCode; // 직종 코드
+	private String[] favoriteOS; // 선호 OS
+	private boolean allowNoti; // 이메일 수신 동의 여부
+}

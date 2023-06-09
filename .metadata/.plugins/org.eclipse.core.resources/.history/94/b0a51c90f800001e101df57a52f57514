@@ -1,0 +1,28 @@
+package service;
+
+import static org.junit.Assert.*;
+
+import java.security.Provider.Service;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import config.AppTest;
+
+public class MemberServiceTest extends AppTest{
+
+	@Autowired
+	MemberService memberService;
+	
+	@Test
+	public void testlist() {
+		System.out.println(memberService.members());
+	}
+	
+	@Test
+	public void testlist() {
+		System.out.println(memberService.memberInfo("go@test.com"));
+		System.out.println(memberService.memberInfo());
+	}
+
+}

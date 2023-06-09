@@ -1,0 +1,7 @@
+package domain;
+
+public class SampleVO {
+	Long id;
+	String title;
+	String content;
+}

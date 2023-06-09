@@ -1,0 +1,19 @@
+package com.jafa.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.jafa.dao.SampleDao;
+
+@Controller
+@RequestMapping("/sample03")
+public class SampleController03 {
+	
+	@Autowired
+	private SampleDao sampleDao;
+	
+	public String myPage1(String memberId) {
+		return "sample03/detail01";
+	}
+}

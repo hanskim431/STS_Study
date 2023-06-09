@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="memberDao" class="spring.dao.MemberDao"/>
+	<bean id="memberDao2" class="spring.dao.MemberDao2"/>
+	
+	<bean id="memberRegisterService" class="spring.service.MemberRegisterService">
+		<property name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<bean id="memberRegisterService2" class="spring.service.MemberRegisterService" scope="prototype">
+		<property name="memberDao" ref="memberDao2"/>
+	</bean>
+	
+	<bean id="changePasswordService" class="spring.service.ChangePasswordService">
+		<constructor-arg name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<!-- 
+	value 속성 : String, Wrapper(Integer,Long 등), 기본데이터 
+	ref 속성 : 참조타입 (String, Wrapper는 제외)
+	-->
+	
+	<bean id="serviceVersion" class="spring.service.ServiceVersion">
+		<property name="major" value="4"/>
+		<property name="minor" value="3"/>
+	</bean>
+	
+	<bean id="serviceVersion2" class="spring.service.ServiceVersion">
+		<constructor-arg name="major" value="5"/>
+		<constructor-arg name="minor" value="2"/>
+	</bean>
+</beans>

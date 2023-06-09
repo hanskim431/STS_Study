@@ -1,0 +1,18 @@
+package com.jafa.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+// 커맨드 객체(StudentVO)의 중첩객체(ReportCard) 프로퍼티 처리
+@Controller
+@RequestMapping("/sample05")
+public class SampleController05 {
+	
+	@GetMapping("/report")
+	public String reportForm() {
+		return "sample05/reportForm";
+		
+	}
+	
+}

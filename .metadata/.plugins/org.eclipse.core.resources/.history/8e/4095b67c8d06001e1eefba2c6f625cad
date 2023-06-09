@@ -1,0 +1,56 @@
+package com.jafa.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.jafa.domain.ReportCard;
+import com.jafa.domain.StudentVO;
+
+/**
+ *  A controller for studying 커맨드 객체의 중첩 객체 프로퍼티 처리
+ * 
+ * @author HansKim
+ *
+ */
+
+// 커맨드 객체(StudentVO)의 중첩객체(ReportCard) 프로퍼티 처리
+// 요청 : /sample05/report
+@Controller
+@RequestMapping("/sample05")
+public class SampleController05 {
+	
+	@GetMapping("/report")
+	public String reportForm() {
+		return "/sample05/reportForm";
+	}
+
+	@PostMapping("/report")
+	public String report(StudentVO vo) {
+		System.out.println(vo);
+		return "/sample05/reportResult";
+	}
+}
+
+/*
+== 커맨드 객체의 중접 객체 프로퍼티 ==
+public class StudentVO { // 커맨드 객체
+	private String name;
+	private String email;
+	private ReportCard reportCard;
+}
+
+public class ReportCard { // 중첩 객체
+	private int eng;
+	private int math;
+	private int science;
+}
+
+studentVO.name: 학생 이름 프로퍼티
+studentVO.email: 학생 이메일프로퍼티
+studentVO.reportCard.eng: 사용자 주소의 도시 프로퍼티
+studentVO.reportCard.math: 사용자 주소의 거리 프로퍼티
+studentVO.reportCard.science: 사용자 주소의 거리 프로퍼티
+
+ */

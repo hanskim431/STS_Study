@@ -1,0 +1,22 @@
+package service;
+
+import java.util.List;
+
+import dao.MemberDao;
+import domain.MemberVO;
+
+public class MemberService {
+
+	private MemberDao memberDao;
+	
+	public MemberService(MemberDao memberDao) {
+		super();
+		this.memberDao = memberDao;
+	}
+
+
+
+	public List<MemberVO> members() {
+		return List.of(new MemberVO(1L, "홍길동"), new MemberVO(2L, "김철수"));
+	}
+}

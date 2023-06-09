@@ -1,0 +1,13 @@
+package spring.service;
+
+import org.junit.Test;
+
+import spring.AppTest;
+
+public class ChangePasswordServiceTest2 extends AppTest{
+
+	@Test
+	public void test() {
+	}
+
+}

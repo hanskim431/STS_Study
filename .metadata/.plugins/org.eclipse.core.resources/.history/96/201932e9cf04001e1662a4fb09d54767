@@ -1,0 +1,13 @@
+package com.jafa.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/sample06")
+public class SampleController06 {
+	
+	public String applyForm() {
+		return "/sample06/applyForm";
+	}
+}

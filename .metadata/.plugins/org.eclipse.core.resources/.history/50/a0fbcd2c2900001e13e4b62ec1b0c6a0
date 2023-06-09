@@ -1,0 +1,9 @@
+package config;
+
+public class ControllerConfig {
+
+	public ControllerConfig() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

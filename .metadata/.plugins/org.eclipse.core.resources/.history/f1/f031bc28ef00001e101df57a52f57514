@@ -1,0 +1,40 @@
+package config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+
+import controller.BoardController;
+import controller.BoardController2;
+import controller.HelloController;
+import controller.MemberController;
+import service.MemberService;
+
+@Import({ServiceConfig.class})
+@Configuration
+public class ControllerConfig {
+
+	// 매개값으로 바로 주입하면 따로 선언할 필요가 없음 MemberController bean 참고
+//	@Autowired
+//	private MemberService memberService;
+	
+	@Bean
+	public MemberController helloController() {
+		return new MemberController(null);
+	}
+	
+	@Bean
+	public MemberController memberController(MemberService memberService) {
+		return new MemberController(memberService);
+	}
+	
+	@Bean
+	public BoardController boardController() {
+		return new BoardController();
+	}
+	
+	@Bean
+	public BoardController2 boardController2() {
+		return new BoardController2();
+	}
+}

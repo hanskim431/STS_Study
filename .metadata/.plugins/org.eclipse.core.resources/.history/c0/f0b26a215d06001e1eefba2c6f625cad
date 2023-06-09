@@ -1,0 +1,9 @@
+package survey;
+
+import java.util.List;
+
+public class AnsweredDate {
+
+	private List<String> responses;
+	private Respondent res;
+}

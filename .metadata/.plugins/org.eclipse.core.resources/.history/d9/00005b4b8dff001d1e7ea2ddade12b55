@@ -1,0 +1,58 @@
+package spring.dao;
+
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+public class MemberDaoMariaDB implements MemberDao{
+
+	private JdbcTemplate jdbcTemplate;
+
+	@Autowired
+	public MemberDaoMariaDB(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+
+	RowMapper<Member> memberMapper = (rs,rowNum) ->{
+		return new Member(
+				rs.getLong("id"),
+				rs.getString("email"),
+				rs.getString("password"),
+				rs.getString("name"),
+				rs.getDate("regdate"));
+	};
+	
+	@Override
+	public List<Member> selectAll() {
+		return jdbcTemplate.query("select * from member", memberMapper);
+	}
+
+	@Override
+	public void insert(Member member) {
+		jdbcTemplate.update("insert into member (email,password,name) values (?,?,?)", memberMapper,
+				member.getEmail(),member.getPassword(),member.getName());
+		
+	}
+
+	@Override
+	public Member selectByEmail(String email) {
+		return jdbcTemplate.queryForObject("select * from member where email=?", memberMapper, email);
+	}
+
+	@Override
+	public void update(Member member) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String email) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

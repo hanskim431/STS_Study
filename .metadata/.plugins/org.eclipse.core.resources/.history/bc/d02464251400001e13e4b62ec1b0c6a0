@@ -1,0 +1,46 @@
+package controller;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+// localhost:8090/sp4-chap09/...
+@Controller // 이 클래스가 MVC 컨트롤러로 사용됨
+public class HelloController {
+	
+	// localhost:8090/sp4-chap09/hello
+	@RequestMapping("/hello") // 속성이 생략돼 value 속성 ( 모든 어노테이션 공통 )
+	public String hello() {
+		return "hello"; // view 이름 : hello
+	}
+	
+	// localhost:8090/sp4-chap09/user/join
+	@RequestMapping(value = "/user/join", method = RequestMethod.GET)
+	public String join() {
+		return "/member/join";
+		// [prefix] [view 이름] [suffix]
+		// /WEB-INF/view/member/join.jsp
+	}
+	
+	@RequestMapping(value = "/user/join", method = RequestMethod.POST)
+	public String joinPost() {
+		System.out.println("POST 요청 처리");
+		return "redirect:/hello";
+	}
+	
+}
+
+/*
+spring-mvc.xml
+
+뷰 리졸버 : 컨트롤러가 반환한 뷰 이름과 결합하여 JSP페이지 경로를 만들어준다.
+<mvc:view-resolvers>
+	<mvc:jsp prefix="/WEB-INF/view/" />
+</mvc:view-resolvers>
+
+	[prefix] [view 이름] [suffix]
+	[prefix] : 설정해준 값  prefix="/WEB-INF/view/"
+	[suffix]의 기본 값 : .jsp
+*/

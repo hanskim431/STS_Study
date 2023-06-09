@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\s\Documents\workspace-sts-3.9.18.RELEASE\test-sp4-chap02"/>
+			<item value="C:\Users\s\Documents\workspace-sts-3.9.18.RELEASE\sp4-chap02"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="sp4"/>
+			<item value="sp5"/>
+			<item value="test"/>
+		</list>
+		<list key="name">
+			<item value="chapter02"/>
+		</list>
+		<list key="artifactId">
+			<item value="sp4-chap08"/>
+			<item value="sp4-chap03-review"/>
+			<item value="sp4-chap03-board"/>
+			<item value="sp5-chap03"/>
+			<item value="sp4-chap03"/>
+			<item value="test-sp4-chap02"/>
+			<item value="sp5-chap02"/>
+			<item value="sp4-chap02"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\s\Documents\workspace-sts-3.9.18.RELEASE\sp4-chap05"/>
+			<item value="C:\Users\s\Documents\workspace-sts-3.9.18.RELEASE\sp4-chap04"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="pong"/>
+			<item value="mvc_review"/>
+			<item value="a_mvc_controller"/>
+			<item value="sp5"/>
+			<item value="sp4"/>
+			<item value="cp4"/>
+			<item value="pro08"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="pong"/>
+			<item value="mvc_review"/>
+			<item value="a_mvc_controller"/>
+			<item value="sp5-chap09-2"/>
+			<item value="sp5-chap09"/>
+			<item value="sp4-chap09-2"/>
+			<item value="cp4-chap09-1"/>
+			<item value="pro08"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

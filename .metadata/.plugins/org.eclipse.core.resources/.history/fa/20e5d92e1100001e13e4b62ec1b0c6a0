@@ -1,0 +1,16 @@
+package controller;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+// localhost:8090/sp4-chap09/...
+@Controller // 이 클래스가 MVC 컨트롤러로 사용됨
+public class HelloController {
+	
+	@RequestMapping("/hello")
+	public String hello() {
+		return "hello";
+	}
+	
+}

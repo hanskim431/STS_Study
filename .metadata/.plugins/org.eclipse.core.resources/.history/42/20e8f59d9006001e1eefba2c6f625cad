@@ -1,0 +1,45 @@
+package com.jafa.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.jafa.domain.ApplicationForm;
+import com.jafa.domain.University;
+
+@Controller
+@RequestMapping("/sample06")
+public class SampleController06 {
+	
+	// 요청 : /sample06/apply
+	@GetMapping("/apply")
+	public String applyForm() {
+		return "/sample06/applyForm";
+	}
+	
+	@PostMapping("/apply")
+	public String apply(@ModelAttribute("applyForm") ApplicationForm vo) { // JSP 요청 : applyForm.feild
+		System.out.println(vo);
+		return "/sample06/applyResult";
+	}
+}
+
+
+/*
+
+public class ApplicationForm {
+	private String name; // 지원자 성명 JSP 요청 : applyForm
+	private String email; // 지원자 이메일
+	private List<University> universityList;
+}
+
+public class University {
+	private String name; // 대학명
+	private String major; // 전공
+}
+
+*/

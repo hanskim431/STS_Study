@@ -1,0 +1,8 @@
+package form;
+
+public class FormCommand {
+	private String loginType;
+	private String jobCode;
+	private String[] favorites;
+	private boolean allowNoti;
+}

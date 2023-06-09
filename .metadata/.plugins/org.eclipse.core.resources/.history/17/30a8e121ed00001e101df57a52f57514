@@ -1,0 +1,15 @@
+package config;
+
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.Configuration;
+
+import com.zaxxer.hikari.HikariDataSource;
+
+@Configuration
+public class RootConfig {
+
+	public DataSource dataSource() {
+		return new HikariDataSource();
+	}
+}

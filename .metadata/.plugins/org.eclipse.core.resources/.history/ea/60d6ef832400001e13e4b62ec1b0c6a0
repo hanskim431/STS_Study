@@ -1,0 +1,9 @@
+package controller;
+
+public class HelloController {
+
+	public HelloController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

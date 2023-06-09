@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../layout/header.jsp" %>
+
+
+<div class="container">
+	<div>
+		<button class="addForm">폼 추가</button>
+		<button class="delForm">폼 삭제</button>
+	</div>
+	<form method="post" class="contactForm">
+		<div class="contactDiv">
+			이름 : <input type="text" name="contactList[0].name" class="name"> <br>
+			전화번호 : <input type="text" name="contactList[0].phoneNumber" class="phoneNumber"> <br>
+		</div>
+	</form>
+	<button>전송</button>
+</div>
+
+<%@ include file="../layout/footer.jsp" %>
+
+<script>
+$(function() {
+	let numberDiv = 1;
+	
+	// 폼 추가 이벤트
+	$('.addForm').on('click',function(){
+		let contactDiv = $('.contactDiv').eq(0).clone(); 
+		let nameInput = contactDiv.find('.name')
+		let phoneInput = contactDiv.find('.phoneNumber')
+		
+		let nameInputAttrName = nameInput.attr('name').replace('0',numberDiv)
+		let phoneInputAttrNamr = phoneInput.attr('name').replace('0',numberDiv)
+		
+		nameInput.attr('name', nameInputAttrName)
+		phoneInput.attr('name', phoneInputAttrNamr)
+		$('.contactForm').append(contactDiv);
+		
+		numberDiv++;
+	});
+	
+	// 폼 삭제 이벤트
+	$('.delForm').click(function(){
+		$('.contactDiv').eq(numberDic-1).remove()
+		numberDiv--;
+	});
+});
+</script>

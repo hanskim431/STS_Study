@@ -1,0 +1,29 @@
+package service;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import config.AppTest;
+
+public class MemberServiceTest extends AppTest{ // AppTest로 @RunWith @ContextConfiguration 상속 받음
+
+	@Autowired
+	MemberService memberService;
+	
+	@Test
+	@Ignore
+	public void testList() {
+		System.out.println(memberService.members());
+	}
+	
+	@Test
+	@Ignore
+	public void testGet() {
+		System.out.println(memberService.memberInfo("go@test.com"));
+		System.out.println(memberService.memberInfo("kim@test.com"));
+	}
+	
+	
+
+}

@@ -1,0 +1,16 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import domain.SampleVO;
+
+public class SampleDao {
+	
+	public List<SampleVO> list() {
+		List<SampleVO> list = new ArrayList<SampleVO>();
+		list.add(SampleVO.builder().id(1L).title("샘플1").content("내용1").build());
+		
+		return list;
+	}
+}

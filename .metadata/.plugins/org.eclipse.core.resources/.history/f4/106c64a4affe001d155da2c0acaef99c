@@ -1,0 +1,9 @@
+package config;
+
+public class AppCtx {
+
+	public AppCtx() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

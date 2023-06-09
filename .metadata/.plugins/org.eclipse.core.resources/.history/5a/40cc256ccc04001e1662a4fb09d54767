@@ -1,0 +1,107 @@
+package com.jafa.controller;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Pong extends JFrame {
+    private static final int WIDTH = 800;
+    private static final int HEIGHT = 400;
+    private static final int PADDLE_WIDTH = 10;
+    private static final int PADDLE_HEIGHT = 60;
+    private static final int BALL_RADIUS = 10;
+    private static final int BALL_SPEED_X = 2;
+    private static final int BALL_SPEED_Y = 2;
+
+    private int paddle1Y = (HEIGHT - PADDLE_HEIGHT) / 2;
+    private int paddle2Y = (HEIGHT - PADDLE_HEIGHT) / 2;
+    private int ballX = WIDTH / 2;
+    private int ballY = HEIGHT / 2;
+    private int ballSpeedX = BALL_SPEED_X;
+    private int ballSpeedY = BALL_SPEED_Y;
+
+    private boolean upPressed = false;
+    private boolean downPressed = false;
+
+    public Pong() {
+        setTitle("Pong");
+        setSize(WIDTH, HEIGHT);
+        setResizable(false);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    upPressed = true;
+                } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    downPressed = true;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    upPressed = false;
+                } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    downPressed = false;
+                }
+            }
+        });
+
+        Timer timer = new Timer(5, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (upPressed && paddle2Y > 0) {
+                    paddle2Y -= 2;
+                }
+                if (downPressed && paddle2Y < HEIGHT - PADDLE_HEIGHT) {
+                    paddle2Y += 2;
+                }
+
+                ballX += ballSpeedX;
+                ballY += ballSpeedY;
+
+                if (ballY <= 0 || ballY >= HEIGHT - BALL_RADIUS) {
+                    ballSpeedY *= -1;
+                }
+
+                if (ballX <= PADDLE_WIDTH && paddle1Y < ballY && ballY < paddle1Y + PADDLE_HEIGHT) {
+                    ballSpeedX *= -1;
+                } else if (ballX >= WIDTH - PADDLE_WIDTH - BALL_RADIUS && paddle2Y < ballY && ballY < paddle2Y + PADDLE_HEIGHT) {
+                    ballSpeedX *= -1;
+                } else if (ballX < PADDLE_WIDTH || ballX > WIDTH - PADDLE_WIDTH - BALL_RADIUS) {
+                    ballX = WIDTH / 2;
+                    ballY = HEIGHT / 2;
+                    ballSpeedX *= -1;
+                }
+
+                repaint();
+            }
+        });
+
+        timer.start();
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, WIDTH, HEIGHT);
+
+        g.setColor(Color.WHITE);
+        g.fillRect(PADDLE_WIDTH, paddle1Y, PADDLE_WIDTH, PADDLE_HEIGHT);
+        g.fillRect(WIDTH - 2 * PADDLE_WIDTH, paddle2Y, PADDLE_WIDTH, PADDLE_HEIGHT);
+        g.fillOval(ballX, ballY, BALL_RADIUS, BALL_RADIUS);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Pong();
+            }
+        });
+    }
+}

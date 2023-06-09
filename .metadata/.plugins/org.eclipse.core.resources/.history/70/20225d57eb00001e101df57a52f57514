@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<c:url var="actionUrl" value="/board/boardWrite"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시글 작성</title>
+</head>
+<body>
+<h1>게시글 작성</h1>
+<form:form action="${actionUrl}" method="post" modelAttribute="BoardVO">
+	<form:input path="title"/><br>
+	<form:textarea rows="10" cols="30" path="content"/><br>
+	<form:input path="writer"/><br>
+	<button>글쓰기</button>
+</form:form>
+</body>
+</html>

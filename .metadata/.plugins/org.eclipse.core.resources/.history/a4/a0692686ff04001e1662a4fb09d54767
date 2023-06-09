@@ -1,0 +1,11 @@
+package proxy;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class ProxyMain {
+
+	public static void main(String[] args) {
+		
+		ApplicatonContext ctx = new AnnotationConfigApplicationContext(RootConfig.class);
+	}
+}

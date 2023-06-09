@@ -1,0 +1,20 @@
+package proxy;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ProxyBookService implements BookService { // 가짜 객체
+
+	@Override
+	public void createBook() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void pulishBook() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

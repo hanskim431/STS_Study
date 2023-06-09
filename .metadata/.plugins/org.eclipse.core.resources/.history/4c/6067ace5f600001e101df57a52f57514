@@ -1,0 +1,34 @@
+package dao;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import config.AppTest;
+import domain.MemberVO;
+
+public class MemberDaoTest extends AppTest {
+
+	@Autowired
+	private MemberDao memberDao;
+	
+	@Test
+	public void test() {
+		memberDao.list();
+	}
+	
+	@Test
+	public void testSelectByEmail() {
+		MemberVO vo = memberDao.selectByEmail("go@test.com");
+		System.out.println(vo);
+	}
+	
+	@Test(expected = )
+	public void testSelectByEmailFail() {
+		MemberVO vo = memberDao.selectByEmail("gone@test.com");
+		System.out.println(vo);
+	}
+
+}

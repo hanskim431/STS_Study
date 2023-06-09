@@ -1,0 +1,20 @@
+package proxy;
+
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Primary
+@Component
+public class ProxyBookService implements BookService { // 가짜 객체
+
+	@Override
+	public void createBook() {
+
+	}
+
+	@Override
+	public void pulishBook() {
+
+	}
+
+}

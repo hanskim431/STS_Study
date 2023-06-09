@@ -1,0 +1,9 @@
+package domain;
+
+public class BoardVO {
+
+	Long bno;
+	String title;
+	String content;
+	String writer;
+}

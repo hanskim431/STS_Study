@@ -1,0 +1,52 @@
+package com.jafa.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+@RequestMapping("/sample04")
+public class SampleController04 {
+	
+	// HeepServletRequest 사용
+	// 요청 : /sample04/list1?id=kim
+	// 뷰에서 데이터를 사용하려면 Request 객체 보관소에 저장해야함
+	@GetMapping("/list1")
+	public String list1(HttpServletRequest request) {
+		String userId = request.getParameter("id");
+		System.out.println(userId);
+		request.setAttribute("UID", userId); // 뷰에서 변수 사용 ${UID}
+		return "sample04/sampleList1";
+	}
+	
+	// @RequestParam 사용
+	// 요청 : /sample04/list2?userId=kim
+	// 뷰에서 데이터를 사용하려면 Model 객체 보관소에 저장해야 함
+	@GetMapping("/list2")
+	public String list2(@RequestParam("userId") String id, Model model) {
+		System.out.println(id);
+		model.addAttribute("userId", id);
+		return "sample04/sampleList2";
+	}
+	
+	// 쿼리스트링의 key값과 @RequestParam이 붙은 파라미터 이름이 같은 경우 @RequestParam을 생략할 수 있다.
+	// @@RequestParam("id") String id 와 Stirn id 는 같음
+	// 요청 : /sample04/list3?id=lee
+	@GetMapping("/list3")
+	public String list3(@RequestParam("id") String id, Model model) {
+		System.out.println(id);
+		model.addAttribute("userId", id);
+		return "sample04/sampleList3";
+	}
+	
+	@GetMapping("/list4")
+	public String list4(String name) {
+		return "sample04/sampleList4";
+	}
+	
+}

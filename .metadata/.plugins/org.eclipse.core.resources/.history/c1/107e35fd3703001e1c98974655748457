@@ -1,0 +1,6 @@
+package com.jafa.config;
+
+// WebConfig : 스프링 mvc 웹 앱에서 설정을 담당함. 주로 ㅇipatcher Servlet설정과 관련된 내용을 정리
+public class WebConfig {
+
+}

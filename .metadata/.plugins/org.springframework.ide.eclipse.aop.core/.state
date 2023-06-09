@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="sp5-chap09"/>
+<aop-project name="mvc_review"/>
+</aop-reference-model>

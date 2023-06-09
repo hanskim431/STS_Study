@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--
+	커맨드 객체의 프로퍼티는 게터이름으로 가져올 수 있다.
+	게터 이름 : getTitle() 이면 title
+ -->
+<div class="container">
+	<h1>전송 결과</h1>
+	SampleVO : ${svo} <br>
+	id : ${svo.id} <br> <!-- getId() -->
+	title : ${svo.title} <br> <!-- getTitle() -->
+	content : ${svo.content} <br> <!-- getContent() -->
+</div>
+</body>
+</html>

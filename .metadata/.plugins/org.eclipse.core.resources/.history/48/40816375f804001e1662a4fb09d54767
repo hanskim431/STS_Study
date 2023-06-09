@@ -1,0 +1,14 @@
+package spring.service;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ChangePasswordServiceTest2 {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,16 @@
+package survey;
+
+import java.util.Collections;
+import java.util.List;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		List<String> list = null;
+		System.out.println(list); // null
+		
+		list = Collections.emptyList(); 
+		System.out.println(list); // []
+		
+	}
+}

@@ -1,0 +1,21 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import domain.BoardVO;
+
+@Controller
+@RequestMapping("/board")
+public class BoardController2 {
+
+	
+	@GetMapping("/write2")
+	public String writeForm(BoardVO vo) {
+		return "/board/write";
+	}
+	
+}

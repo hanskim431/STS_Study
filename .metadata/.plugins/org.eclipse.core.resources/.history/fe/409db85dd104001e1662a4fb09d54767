@@ -1,0 +1,27 @@
+package com.jafa.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.jafa.domain.University;
+
+@Controller
+@RequestMapping("/sample06")
+public class SampleController06 {
+	
+	@GetMapping("/apply")
+	public String applyForm() {
+		return "/sample06/applyForm";
+	}
+	
+	@PostMapping("/apply")
+	public String apply(ArrayList<University> universityList) {
+		System.out.println(universityList);
+		return "/sample06/applyResult";
+	}
+}

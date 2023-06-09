@@ -1,0 +1,12 @@
+package service;
+
+import java.util.List;
+
+import domain.MemberVO;
+
+public class MemberService {
+
+	public List<MemberVO> members() {
+		return List.of(new MemberVO(1L, "홍길동"), new MemberVO(2L, "김철수"));
+	}
+}

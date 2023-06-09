@@ -1,0 +1,6 @@
+package form;
+
+public class Code {
+	private String code;
+	private String label;
+}

@@ -1,0 +1,29 @@
+package controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import dao.SampleDao;
+
+@Controller
+public class SampleController {
+	
+	@Autowired
+	SampleDao sampleDao;
+
+	@RequestMapping("/sample01/list")
+	public String list1() {
+		// 반환 타입 String : view 이름
+		// @RequestMapping :  
+		// 		value = 요청 URL
+		// 		method = 속성을 설정하지 않으면 GET 방식 전송
+		return "sampleList";
+		// /WEB-INF/views/sampleList.jsp
+	}
+	
+	public String list2(Model model) {
+		
+	}
+}

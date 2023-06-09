@@ -1,0 +1,23 @@
+package config;
+
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import dao.MemberDao;
+import service.MemberService;
+
+@Configuration
+public class MemberConfig {
+	
+	@Bean
+	public MemberDao memberDao(DataSource dataSource) {
+		return new MemberDao(dataSource);
+	}
+	
+	@Bean
+	public MemberService memberService() {
+		return new MemberService(memberDao())
+	}
+}

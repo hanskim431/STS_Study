@@ -1,0 +1,37 @@
+1685925674285	Rename resource 'lib'
+1685927632878	Move 'style.css' to 'webapp'
+1685927991751	Move 'style.css' to 'css'
+1685928229670	Delete element
+1685928611913	Rename resource 'main].js'
+1685931427107	Rename package 'controller'
+1685931436774	Rename package 'com.jafa.config'
+1685931441020	Rename package 'com.jafa.controller'
+1685931462407	Delete element
+1685931467821	Delete element
+1685931630903	Copy compilation unit
+1685931639399	Rename type 'ServletConfig2'
+1685931684185	Move 2 resources to 'controller'
+1685931689005	Move 'SampleDao.java' to 'dao'
+1685931691037	Move 'SampleVO.java' to 'domain'
+1685931760339	Delete element
+1685931763370	Delete elements
+1685931849096	Copy file
+1685932416027	Copy file
+1685932734436	Copy file
+1685932856946	Move 'README.java' to 'readme'
+1685935067507	Delete element
+1685942190788	Rename resource 'detail.jsp'
+1685942778842	Copy file
+1685942780946	Copy file
+1685942784392	Rename resource 'detail2.jsp'
+1685942787054	Rename resource 'detail3.jsp'
+1685943746107	Copy file
+1685943749597	Rename resource 'detail4.jsp'
+1685944844972	Delete element
+1685945375877	Copy file
+1685948457081	Copy file
+1686098672573	Delete element
+1686099583506	Copy file
+1686108434672	Move 'sample07' to 'views'
+1686109133029	Copy file
+1686195829884	Copy file

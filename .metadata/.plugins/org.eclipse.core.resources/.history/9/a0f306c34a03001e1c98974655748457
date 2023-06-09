@@ -1,0 +1,18 @@
+package com.jafa.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/sample02") // 클래스 단위에 @RequtestMapping 적용
+// 메서드에 지정한 경로와 결합하여 동작
+public class SampleController02 {
+
+	@RequestMapping(value = "list1", method = "")
+	public String list1() {
+		
+		
+		return "sample02/sampleList01";
+		
+	}
+}

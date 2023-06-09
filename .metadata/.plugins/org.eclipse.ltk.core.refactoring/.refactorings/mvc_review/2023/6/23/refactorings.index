@@ -1,0 +1,8 @@
+1685949632694	Move 'domain' to 'jafa'
+1685949633996	Move 'dao' to 'com'
+1685949636077	Move 'dao' to 'jafa'
+1686115641939	Rename type 'MvcConfig'
+1686115754158	Rename type 'ControllerConfig'
+1686120799885	Move package
+1686121832810	Rename resource 'lib'
+1686121839630	Rename resource 'view'

@@ -1,0 +1,16 @@
+package service;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import config.AppTest;
+
+public class MemberServiceTest extends AppTest{
+
+	@Test
+	public void testlist() {
+		fail("Not yet implemented");
+	}
+
+}

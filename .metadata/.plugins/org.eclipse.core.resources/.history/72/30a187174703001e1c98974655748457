@@ -1,0 +1,50 @@
+package com.jafa.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.jafa.controller.HomeController;
+
+@Configuration
+@EnableWebMvc
+@ComponentScan("com.jafa") // RootConfig에다 하면 bean을 불러오지 못함. 
+public class ServletConfig implements WebMvcConfigurer{
+
+	@Override
+	public void configureViewResolvers(ViewResolverRegistry registry) {
+		registry.jsp("/WEB-INF/views/", ".jsp");
+	}
+
+//	// css, image, 자바 스크립트 처리하기 위함
+//	@Override
+//	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+//		configurer.enable();
+//	}
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**") // resources 이하의 모든 요청에 대하여 디스패쳐 서블릿이 관여하지 않음
+			.addResourceLocations("/resources/");
+	}
+	
+	@Bean
+	public HomeController homeController() {
+		return new HomeController();
+	}
+}
+
+/*
+ *  @ConponentScan이 검색가능한 빈
+ *  	@Component가 붙은 클래스
+ *  	@Controller
+ *  	@Configuration
+ *  	@Service
+ * 		@Repositiry
+ * 
+ *	@Component를 가지고 있는 클래스라면 불러올 수 있음. 
+ */ 

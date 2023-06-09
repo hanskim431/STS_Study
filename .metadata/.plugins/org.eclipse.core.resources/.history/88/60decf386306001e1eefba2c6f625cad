@@ -1,0 +1,27 @@
+package survey;
+
+import java.util.List;
+
+public class Qustion {
+
+	private String title;
+	private List<String> options;
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public List<String> getOptions() {
+		return options;
+	}
+	public void setOptions(List<String> options) {
+		this.options = options;
+	}
+
+	public boolean isChoice() { // 객관식 여부
+		return options != null && !options.isEmpty();
+		
+	}
+}

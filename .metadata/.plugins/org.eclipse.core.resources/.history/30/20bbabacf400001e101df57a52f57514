@@ -1,0 +1,9 @@
+package config;
+
+import org.junit.runner.RunWith;
+
+@RunWith(SpringJUnit)
+@
+public class AppTest {
+
+}

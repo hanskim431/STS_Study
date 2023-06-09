@@ -1,0 +1,9 @@
+package config;
+
+public class MvcConfig {
+
+	public MvcConfig() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

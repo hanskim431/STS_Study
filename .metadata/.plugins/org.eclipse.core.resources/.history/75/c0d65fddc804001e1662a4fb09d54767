@@ -1,0 +1,7 @@
+package com.jafa.domain;
+
+public class StudentVO {
+	String name;
+	String email;
+	ReportCard reportCard;
+}

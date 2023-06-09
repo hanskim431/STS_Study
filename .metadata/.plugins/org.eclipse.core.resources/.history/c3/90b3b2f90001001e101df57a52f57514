@@ -1,0 +1,64 @@
+package controller;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import domain.MemberVO;
+import lombok.NoArgsConstructor;
+import service.MemberService;
+
+@Controller
+@RequestMapping("/member")
+public class MemberController {
+	
+	private MemberService memberService;
+
+	public MemberController(MemberService memberService) {
+		this.memberService = memberService;
+	}
+
+	// 요청경로와 뷰이름이 같은 경우 : void
+	@GetMapping({"/list","/members"})
+	public void list(Model model) {
+		System.out.println("list요청");
+//		System.out.println(memberService.members());
+		List<MemberVO> members = memberService.members();
+		model.addAttribute("list", members); // ${list}
+	}
+	// Long 자동초기화 null
+	// long 자동초기화 0
+	// required 속성 : 기본값 true
+	@GetMapping("/get")
+	public void getMember(
+//			@RequestParam(value="mno", required = false, defaultValue = "1" ) Long paramMno) {
+			@RequestParam(value="email", required = true) String email, Model model) {
+//		System.out.println(paramMno);
+		System.out.println("getMember요청");
+		MemberVO memberInfo = memberService.memberInfo(email);
+		model.addAttribute("member", model)
+	}
+	
+	@GetMapping("/join")
+	public void joinForm(@ModelAttribute("command") MemberVO vo) {
+//		return "/member/join";
+	}
+	
+	@PostMapping("/memberJoin")
+	// 커맨드 객체의 매개변수 , 기본 생성자(@NoArgsConstructor)가 필수 필요함 (없으면 No primary or default constructor found for class domain.MemberVO)
+	public String join(@ModelAttribute("member") MemberVO vo) { 
+		System.out.println(vo);
+		return "redirect:list";
+	}
+	
+}

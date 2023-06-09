@@ -1,0 +1,59 @@
+package spring.dao;
+
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:appCtx.xml"})
+public class MemberDaoTest {
+
+	@Autowired
+	MemberDao memberDao;
+
+	// LIST 리스트
+	@Test
+	@Ignore
+	public void testList() {
+		assertNotNull(memberDao);
+		List<Member> list = memberDao.selectAll();
+		System.out.println(list);
+		
+	}
+
+	// C 삽입
+	@Test
+	@Ignore
+	public void testInsert() {
+		assertNotNull(memberDao);
+		Member member = new Member("kong@test.com", "2222", "홍진호");
+		memberDao.insert(member);
+		
+	}
+
+	// R 읽기
+	@Test
+	@Ignore
+	public void testRead() {
+		assertNotNull(memberDao);
+		Member member = memberDao.selectByEmail("go@test.com");
+		System.out.println(member);
+		
+	}
+	
+	// U 수정
+	@Test
+	public void testUpdate() {
+		assertNotNull(memberDao);
+		Member member = new Member("kong@test.com", "9999", "홍진호");
+	}
+	
+	// D 삭제
+}

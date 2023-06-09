@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../layout/header.jsp" %>
+
+<div class="container">
+	<h1>쿠키 생성</h1>
+	<a href="${contextPath}/sample07/getCookie">생성된 모든 쿠키 확인</a>
+	<form action="${contextPath}/sample07/getCookie">
+		<h1>이름으로 쿠키 확인</h1>
+		<input>
+	</form>
+</div>
+
+<%@ include file="../layout/footer.jsp" %>
