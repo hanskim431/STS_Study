@@ -16,7 +16,7 @@
 	</div>
 	<label for="etc">기타</label><br>
 	<form:textarea path="etc" cols="20" rows="3"/>
-	
+	<button>제출</button>
 </form:form>
 </body>
 </html>

@@ -42,4 +42,10 @@ public class RegisterRequest {
 	public boolean isPasswordEqualToConfirmPassword() {
 		return password.equals(confirmPassword);
 	}
+
+	@Override
+	public String toString() {
+		return "RegisterRequest [email=" + email + ", password=" + password + ", confirmPassword=" + confirmPassword
+				+ ", name=" + name + "]";
+	}
 }
