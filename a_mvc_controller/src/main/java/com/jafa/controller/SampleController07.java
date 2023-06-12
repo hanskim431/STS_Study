@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SampleController07 {
 	
 	// Cookie : 쿠키, 
+	// 요청 : /sample07/setCookie
 	@GetMapping("/setCookie")
 	public String setCookie(HttpServletResponse response) {
 		// 쿠키 생성
