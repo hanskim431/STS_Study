@@ -7,6 +7,7 @@
 	<title><spring:message code="member.register" /></title>
 </head>
 <body>
+<spring:message code="msg.test"/>
 <a href="?lang=ko">한국어</a>
 <a href="?lang=en">영어</a>
 	<h2><spring:message code="term" /></h2>

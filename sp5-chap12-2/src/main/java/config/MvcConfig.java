@@ -46,9 +46,9 @@ public class MvcConfig implements WebMvcConfigurer{
 	@Bean
 	public ReloadableResourceBundleMessageSource messageSource() {
 		ReloadableResourceBundleMessageSource  ms = new ReloadableResourceBundleMessageSource();
-		ms.setBasenames("classpath:/message/label", "classpath:/errors/error");
+		ms.setBasenames("classpath:/message/label", "classpath:/errors/error", 
+				"file:C:/Users/s/Documents/workspace-sts-3.9.18.RELEASE/sp5-chap12-2/src/message/test");
 		ms.setDefaultEncoding("UTF-8");
-		ms.setCacheSeconds(3);
 		return ms;
 	}
 	
@@ -75,6 +75,7 @@ public class MvcConfig implements WebMvcConfigurer{
 		registry.addInterceptor(localeChangeInterceptor());
 	}
 	
+	// 유효성 검사 
 	@Override
 	public Validator getValidator() {
 		return new RegisterRequestValidator();
