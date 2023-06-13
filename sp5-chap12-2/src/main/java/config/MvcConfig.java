@@ -3,7 +3,7 @@ package config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -35,13 +35,23 @@ public class MvcConfig implements WebMvcConfigurer{
 		registry.addViewController("/main").setViewName("main");
 	}
 	
+//	@Bean
+//	public ResourceBundleMessageSource messageSource() { // 빈id를 반드시 messageSource로 지정해야함
+//		ResourceBundleMessageSource ms = new ResourceBundleMessageSource(); 
+//		ms.setBasenames("message.label","errors.error"); // classpath:message/label.properties, errors/error.properties 
+//		ms.setDefaultEncoding("UTF-8");
+//		return ms;
+//	}
+	
 	@Bean
-	public ResourceBundleMessageSource messageSource() { // 빈id를 반드시 messageSource로 지정해야함
-		ResourceBundleMessageSource ms = new ResourceBundleMessageSource(); 
-		ms.setBasenames("message.label","errors.error"); // classpath:message/label.properties, errors/error.properties 
+	public ReloadableResourceBundleMessageSource messageSource() {
+		ReloadableResourceBundleMessageSource  ms = new ReloadableResourceBundleMessageSource();
+		ms.setBasenames("classpath:/message/label", "classpath:/errors/error");
 		ms.setDefaultEncoding("UTF-8");
+		ms.setCacheSeconds(3);
 		return ms;
 	}
+	
 	/*
 	 * 다국어 처리 
 	 * 참고 :
@@ -65,9 +75,9 @@ public class MvcConfig implements WebMvcConfigurer{
 		registry.addInterceptor(localeChangeInterceptor());
 	}
 	
-//	@Override
-//	public Validator getValidator() {
-//		return new RegisterRequestValidator();
-//	}
+	@Override
+	public Validator getValidator() {
+		return new RegisterRequestValidator();
+	}
 	
 }
