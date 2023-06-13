@@ -75,10 +75,10 @@ public class MvcConfig implements WebMvcConfigurer{
 		registry.addInterceptor(localeChangeInterceptor());
 	}
 	
-	// 유효성 검사 
-	@Override
-	public Validator getValidator() {
-		return new RegisterRequestValidator();
-	}
+//	// 유효성 검사 
+//	@Override
+//	public Validator getValidator() {
+//		return new RegisterRequestValidator();
+//	}
 	
 }
