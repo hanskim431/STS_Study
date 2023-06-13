@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+import controller.RegisterRequestValidator;
 import spring.ChangePasswordService;
 import spring.MemberDao;
 import spring.MemberRegisterService;
@@ -51,5 +52,12 @@ public class MemberConfig {
 		ChangePasswordService pwdSvc = new ChangePasswordService();
 		pwdSvc.setMemberDao(memberDao());
 		return pwdSvc;
+	}
+	
+	@Bean
+	RegisterRequestValidator registerRequestValidator() {
+		RegisterRequestValidator registerRequestValidator = new RegisterRequestValidator();
+		registerRequestValidator.setMemberDao(memberDao());
+		return registerRequestValidator;
 	}
 }

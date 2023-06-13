@@ -6,13 +6,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-@EnableWebMvc
 @Configuration
-public class MvcConfig implements WebMvcConfigurer {
+@EnableWebMvc
+public class MvcConfig implements WebMvcConfigurer{
 	
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -23,17 +26,37 @@ public class MvcConfig implements WebMvcConfigurer {
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		registry.jsp("/WEB-INF/view/",".jsp");
 	}
-
+	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/main").setViewName("main");
 	}
 	
+	
 	@Bean
 	public MessageSource messageSource() { // 빈id를 반드시 messageSource로 지정해야함
 		ResourceBundleMessageSource ms = new ResourceBundleMessageSource(); 
-		ms.setBasenames("message.label"); // classpath:message/label.properties
+		ms.setBasenames("message.label","error.errors"); // classpath:message/label.properties
 		ms.setDefaultEncoding("UTF-8");
 		return ms;
 	}
+	
+	@Bean
+	public SessionLocaleResolver localeResolver() {
+		return new SessionLocaleResolver();
+	}
+	
+	@Bean
+	public LocaleChangeInterceptor localeChangeInterceptor() {
+		LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+		interceptor.setParamName("lang");
+		return interceptor;
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(localeChangeInterceptor());
+	}
+	
+	
 }

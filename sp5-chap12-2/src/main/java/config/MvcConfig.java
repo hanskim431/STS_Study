@@ -38,7 +38,9 @@ public class MvcConfig implements WebMvcConfigurer{
 //	@Bean
 //	public ResourceBundleMessageSource messageSource() { // 빈id를 반드시 messageSource로 지정해야함
 //		ResourceBundleMessageSource ms = new ResourceBundleMessageSource(); 
+		// message property 파일의 위치, 이름 지정
 //		ms.setBasenames("message.label","errors.error"); // classpath:message/label.properties, errors/error.properties 
+		// 기본 인코딩 지정
 //		ms.setDefaultEncoding("UTF-8");
 //		return ms;
 //	}
@@ -58,11 +60,17 @@ public class MvcConfig implements WebMvcConfigurer{
 	 * https://url.kr/ef8qbl
 	 * 동 https://velog.io/@bey1548/Spring%EC%97%90%EC%84%9C-%EB%8B%A4%EA%B5%AD%EC%96%B4-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0
 	 */
+	 
+	// localeResolver : 다국어처리 방법을 선택
+	// - AcceptHeaderLocaleResolver (default) : 브라우저에 설정된 언어값을 읽어 처리
+	// - SessionLocaleResolver : request가 갖고있는 session의 locale 정보를 획득, 만약 값이 없다면 defaultLocale로 지정
+	// - CookieLocaleResolver : 언어를 변경하고 쿠키에 값을 저장
 	@Bean
 	public SessionLocaleResolver localeResolver() {
 		return new SessionLocaleResolver();
 	}
 	
+	// LocaleChangeInterceptor : 언어 변경을 위한 인터셉터 생성, 사용자가 url을 통해서 언어를 변경할 경우 사용
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {
 		LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
@@ -70,6 +78,7 @@ public class MvcConfig implements WebMvcConfigurer{
 		return interceptor;
 	}
 	
+	// 인터셉터 등록
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());

@@ -4,11 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>메인</title>
+    <title>메인</title>
 </head>
 <body>
-<p>환영합니다.</p>
-<a href='<c:url value="/register/step1" />'>[회원가입하기]</a>
+    <p>환영합니다.</p>
+    <p><a href="<c:url value="/register/step1" />">[회원 가입하기]</a>
 </body>
 </html>

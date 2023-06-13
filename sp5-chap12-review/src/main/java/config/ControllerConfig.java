@@ -1,5 +1,6 @@
 package config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,9 +11,10 @@ import spring.MemberRegisterService;
 public class ControllerConfig {
 	
 	@Bean
-	public RegisterController registerController(MemberRegisterService memberRegisterService) {
-		RegisterController registerController = new RegisterController();
-		registerController.setMemberRegisterService(memberRegisterService);
-		return registerController;
+	public RegisterController registerController(
+			@Qualifier("memberRegSvc") MemberRegisterService memberRegisterService) {
+		RegisterController controller = new RegisterController();
+		controller.setMemberRegisterService(memberRegisterService);
+		return controller;
 	}
 }
