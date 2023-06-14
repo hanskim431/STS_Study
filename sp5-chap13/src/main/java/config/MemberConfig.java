@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+import spring.AuthService;
 import spring.ChangePasswordService;
 import spring.MemberDao;
 import spring.MemberRegisterService;
@@ -52,4 +53,12 @@ public class MemberConfig {
 		pwdSvc.setMemberDao(memberDao());
 		return pwdSvc;
 	}
+
+	@Bean
+	public AuthService authService() {  
+		AuthService authService = new AuthService();
+		authService.setMemberDao(memberDao());
+		return authService;
+	}
+	
 }
