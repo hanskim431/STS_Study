@@ -1,5 +1,6 @@
 package controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.AuthInfo;
 import spring.AuthService;
 import spring.WrongIdPasswordException;
 
@@ -29,12 +31,15 @@ public class LoginController {
 	}
 	
 	@PostMapping
-	public String submit(@Valid LoginCommand loginCommand, Errors errors) {
+	public String submit(@Valid LoginCommand loginCommand, Errors errors, HttpSession Session) {
 		if(errors.hasErrors()) {
 			return "login/loginForm";
 		}
 		try {
-			authService.authenticate(loginCommand.getEmail(), loginCommand.getPassword());
+			AuthInfo authInfo = authService.authenticate(loginCommand.getEmail(), loginCommand.getPassword()); // TODO authInfo를 세션에 저장해야 함
+			Session.setAttribute("authInfo", authInfo);
+			
+			
 		} catch (WrongIdPasswordException e) {
 			errors.reject("idPasswordNotMatching");
 			return "login/loginForm";

@@ -15,6 +15,9 @@
 <div>
 	<a href="<c:url value='/main'/>">[<spring:message code="go.main" />]</a>
 </div>
+
+${authInfo.email }
+${authInfo.name }
 	
 </body>
 </html>
