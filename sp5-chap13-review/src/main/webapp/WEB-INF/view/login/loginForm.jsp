@@ -6,32 +6,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code='login.title'/></title>
+<title><spring:message code="login.title" /></title>
 </head>
 <body>
 <form:form modelAttribute="loginCommand">
 	<div>
 		<label>
-			<spring:message code='email'/> :<br>
+			<spring:message code="email" />:<br>
 			<form:input path="email" />
 			<form:errors path="email" />
 		</label>
 	</div>
     <div>
         <label>
-	       <spring:message code='password'/> :<br>
+	        <spring:message code="password" />:<br>
 	        <form:password path="password" />
-	        <form:errors path="password" />
+			<form:errors path="password" />
+    		<form:errors/>
         </label>
-	<form:errors/>
     </div>	
-	<div>
-		<label><spring:message code="rememberEmail" />:
-		<form:checkbox path="rememberEmail"/></label> 
+    <div>
+		<label>
+			<spring:message code="rememberEmail" />:
+			<form:checkbox path="rememberEmail"/>
+		</label> 
 	</div>
-	<input type="submit" value="<spring:message code='login.title'/>">
-	
-	
+	<input type="submit" value="<spring:message code="login.btn" />">
 </form:form>
 </body>
 </html>
