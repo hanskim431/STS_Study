@@ -5,9 +5,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import controller.ChangePwdController;
 import controller.LoginController;
+import controller.LogoutController;
 import controller.RegisterController;
 import spring.AuthService;
+import spring.ChangePasswordService;
 import spring.MemberRegisterService;
 
 @Configuration
@@ -15,6 +18,9 @@ public class ControllerConfig {
 	
 	@Autowired
 	private AuthService authService;
+	
+	@Autowired
+	private ChangePasswordService changePasswordService;
 	
 	@Bean
 	public RegisterController registerController(
@@ -29,5 +35,17 @@ public class ControllerConfig {
 		LoginController loginController = new LoginController();
 		loginController.setAuthService(authService);
 		return loginController;
+	}
+	
+	@Bean
+	public LogoutController logoutController() {
+		return new LogoutController();
+	}
+	
+	@Bean
+	public ChangePwdController changePwdController() {
+		ChangePwdController changePwdController = new ChangePwdController();
+		changePwdController.setChangePasswordService(changePasswordService);
+		return changePwdController;
 	}
 }

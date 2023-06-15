@@ -7,9 +7,12 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import interceptor.AuthCheckInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -34,8 +37,20 @@ public class MvcConfig implements WebMvcConfigurer{
 	@Bean
 	public MessageSource messageSource() { // 빈id를 반드시 messageSource로 지정해야함
 		ResourceBundleMessageSource ms = new ResourceBundleMessageSource(); 
-		ms.setBasenames("message.label", "message.label_login"); // classpath:message/label.properties
+		ms.setBasenames("message.label", "message.label_login", "message.label_changePwd"); // classpath:message/label.properties
 		ms.setDefaultEncoding("UTF-8");
 		return ms;
+	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(authCheckInterceptor())
+		.addPathPatterns("/edit/**")
+		.excludePathPatterns("/edit/help/**"); //제외할 경로 패턴
+	}
+
+	@Bean
+	public AuthCheckInterceptor authCheckInterceptor() {
+		return new AuthCheckInterceptor();
 	}
 }

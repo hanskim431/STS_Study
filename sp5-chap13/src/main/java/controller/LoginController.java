@@ -31,6 +31,8 @@ public class LoginController {
 	@GetMapping
 	public String form(LoginCommand loginCommand,
 			@CookieValue(value = "REMEMBER", required = false) String remember) {
+			// @CookieValue(value = "REMEMBER", required = false) Cookie remember) { 
+			// 원래 쿠키의 타입은 Cookie 이나 String 으로도 변경하여 사용 가능함
 		if(remember!=null) {
 			loginCommand.setEmail(remember);
 			loginCommand.setRememberEmail(true);
@@ -45,7 +47,8 @@ public class LoginController {
 			return "login/loginForm";
 		}
 		try {
-			AuthInfo authInfo = authService.authenticate(loginCommand.getEmail(), loginCommand.getPassword()); // TODO authInfo를 세션에 저장해야 함
+			AuthInfo authInfo = authService.authenticate(loginCommand.getEmail(), loginCommand.getPassword()); 
+			// AuthService의 authenticate() 메소드 실행해 사용자 로그인 정보 일치 확인, 로그인 정보를 세션에 저장을 위해 authInfo를 객체 생성 대입
 			Session.setAttribute("authInfo", authInfo); // 세션에 authInfo라는 이름으로 authInfo객체 저장
 			// authInfo 객체는 JSESSIONID에 연결되어 해당 세션에 속한 사용자 식별
 			// Session(세션) : 웹 어플리케이션에서 클라이언트(웹 브라우저 등)와의 상태를 유지하기 위해 사용
@@ -56,7 +59,7 @@ public class LoginController {
 			
 			// 쿠키 생성
 			Cookie rememberCookie = new Cookie("REMEMBER", loginCommand.getEmail());
-//			rememberCookie.setPath("/"); // 모든 경로 이하에 쿠키 적용 (기본값)
+//			rememberCookie.setPath("/"); // 웹 사이트 모든 경로 이하에 쿠키 적용 (기본값)
 			if(loginCommand.isRememberEmail()) { // 이메일 기억
 				rememberCookie.setMaxAge(60*60*24*7); // 7일간 쿠키 생성
 			} else { // 이메일 기억 않기

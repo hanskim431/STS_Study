@@ -55,11 +55,13 @@ public class MvcConfig implements WebMvcConfigurer{
 	// 인터셉터 추가
 	@Override 
 	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(authCheckInterceptor()) 
+		.addPathPatterns("/edit/**") // 특정 경로 추가, edit 이하 모든 경로
+		.excludePathPatterns("/edit/help/**"); //제외할 경로 패턴
+		// 테스트용
 		registry.addInterceptor(sampleInterceptor())
 				.addPathPatterns("/sample/**") // 특정 경로 추가
 				.excludePathPatterns("/sample/test1", "/sample/test2");  // 특정 경로 제거
-		registry.addInterceptor(authCheckInterceptor())
-		.addPathPatterns("/edit/changePassword");	
 	}
 	
 }
