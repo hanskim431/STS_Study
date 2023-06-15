@@ -48,7 +48,7 @@ public class Member {
 		this.password = newPassword;
 	}
 	
-	public boolean matchPassword(String password) { // 비밀번호 일치여부 확인 메서드
-		return this.password.equals(password); // dao 에서 받은 Member 객체의 password가 메소드에 삽입된 password와 일치하면 참 반환
+	public boolean matchPassword(String password) {
+		return this.password.equals(password);
 	}
 }
