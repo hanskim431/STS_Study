@@ -12,7 +12,7 @@
 ////@RestController
 //@Controller
 //@ResponseBody
-//public class RestMemberController2 {
+//public class SampleRestMemberController {
 //
 //	@GetMapping("/rest/test")
 //	@ResponseBody

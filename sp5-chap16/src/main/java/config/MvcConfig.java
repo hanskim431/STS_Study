@@ -64,6 +64,7 @@ public class MvcConfig implements WebMvcConfigurer{
 		return new AuthCheckInterceptor();
 	}
 
+	// 날짜 형식 변환 처리 : 기본 적용 설정
 	@Override
 	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초");
