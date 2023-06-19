@@ -67,14 +67,13 @@ public class MvcConfig implements WebMvcConfigurer{
 	// 날짜 형식 변환 처리 : 기본 적용 설정
 	@Override
 	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초");
-		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder
-				.json()
-				.simpleDateFormat("yyyy년 MM월 dd일 HH시 mm분 ss초")
-				.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(formatter))
-				.build();
-		converters.add(0, new MappingJackson2HttpMessageConverter(objectMapper));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"); // DateTimeFormatter객체 생성, 시간 형식 포멧 지정
+		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder // Jackson2ObjectMapperBuilder : ObjectMapper를 쉽게 작성할 수 있도록 sp에서 제공하는 클래스
+				.json() // JSON 형식으로 변환
+//				.simpleDateFormat("yyyy년 MM월 dd일 HH시 mm분 ss초") // 괄호안의 포멧으로
+				.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(formatter)) // LocalDateTime 타입을 지정된 시간 포멧으로 직렬화 
+				.build(); // ObjectMapper 객체 생성, 날짜 형식 설정
+		converters.add(0, new MappingJackson2HttpMessageConverter(objectMapper)); // 새로 추가한 HttpMessageConverter를 converter의 목록 제일 앞에 위치
 	}
-	
 	
 }
