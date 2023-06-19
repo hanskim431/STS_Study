@@ -2,6 +2,8 @@ package spring;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Member {
@@ -10,7 +12,10 @@ public class Member {
 	private String email;
 	@JsonIgnore
 	private String password;
+	
 	private String name;
+	
+//	@JsonFormat(pattern = "yyyy/HH/dd HH:mm:ss")
 	private LocalDateTime registerDateTime;
 
 	public Member(String email, String password, 
@@ -41,6 +46,8 @@ public class Member {
 		return name;
 	}
 
+//	@JsonFormat(shape = Shape.STRING) // iso 
+//	@JsonFormat(pattern = "yyyy년 MM월 dd일 HH시 mm분 ss초")
 	public LocalDateTime getRegisterDateTime() {
 		return registerDateTime;
 	}

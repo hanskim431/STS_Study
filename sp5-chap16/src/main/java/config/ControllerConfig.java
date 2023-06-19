@@ -27,6 +27,9 @@ public class ControllerConfig {
 	@Autowired
 	private ChangePasswordService changePasswordService;
 	
+	@Autowired
+	private MemberRegisterService memberRegisterService;
+	
 	@Bean
 	public RegisterController registerController(
 			@Qualifier("memberRegSvc") MemberRegisterService memberRegisterService) {
@@ -74,9 +77,10 @@ public class ControllerConfig {
 	}
 	
 	@Bean
-	public RestMemberController restMemberController(MemberDao memberDao) {
-		RestMemberController restMemberController = new RestMemberController();
+	public RestMemberController restMemberController(MemberDao memberDao, MemberRegisterService memberRegisterService) {
+		RestMemberController restMemberController = new RestMemberController(); 
 		restMemberController.setMemberDao(memberDao);
+		restMemberController.setMemberRegisterService(memberRegisterService);
 		return restMemberController;
 	}
 }
