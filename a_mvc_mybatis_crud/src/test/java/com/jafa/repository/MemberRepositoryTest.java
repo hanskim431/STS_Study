@@ -12,18 +12,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.jafa.config.RootConfig;
 import com.jafa.domain.MemberVO;
 
+import lombok.extern.log4j.Log4j;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RootConfig.class})
+@Log4j
 public class MemberRepositoryTest {
 
 	@Autowired
 	MemberRepository memberRepository;
 	
 	@Test
-	@Ignore
+//	@Ignore
 	public void test() {
 		List<MemberVO> list = memberRepository.selectAll();
-		System.out.println(list);
+		log.info(list);
 	}
 
 	@Test
@@ -59,8 +62,9 @@ public class MemberRepositoryTest {
 	}
 	
 	@Test
+	@Ignore
 	public void selectByEmailTest() {
-		MemberVO vo = memberRepository.selectByEmail("go@test.com");
+		MemberVO vo = memberRepository.selectByEmail("lee@test.com");
 		System.out.println(vo);
 	}
 }

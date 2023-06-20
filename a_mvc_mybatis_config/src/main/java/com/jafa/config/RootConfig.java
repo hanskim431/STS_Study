@@ -62,13 +62,13 @@ public class RootConfig {
 		return new SqlSessionTemplate(SessionFactoryBean().getObject());
 	}
 	
-//	@Bean
-//	public MessageSource messageSource() {
-//		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-//		messageSource.setBasename("message.label");
-//		messageSource.setDefaultEncoding("utf-8");
-//		return messageSource;
-//	}
+	@Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+		messageSource.setBasename("message.label");
+		messageSource.setDefaultEncoding("utf-8");
+		return messageSource;
+	}
 	
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() { // property source를 쓰기위해 등록함
