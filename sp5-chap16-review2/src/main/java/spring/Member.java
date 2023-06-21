@@ -3,7 +3,6 @@ package spring;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Member {
@@ -12,11 +11,9 @@ public class Member {
 	private String email;
 	@JsonIgnore
 	private String password;
-	
 	private String name;
-	
-//	@JsonFormat(shape = Shape.STRING) // 2023-06-20T15:10:01 : ISO 8601
-//	@JsonFormat(pattern = "yyyy/HH/dd HH:mm:ss")
+//	@JsonFormat(shape = Shape.STRING)\
+//	@JsonFormat(pattern = "yyyy년MM월dd일 HH:mm:ss")
 	private LocalDateTime registerDateTime;
 
 	public Member(String email, String password, 
@@ -47,8 +44,6 @@ public class Member {
 		return name;
 	}
 
-//	@JsonFormat(shape = Shape.STRING) // iso 
-//	@JsonFormat(pattern = "yyyy년 MM월 dd일 HH시 mm분 ss초")
 	public LocalDateTime getRegisterDateTime() {
 		return registerDateTime;
 	}

@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>a_mvc_mybatis_crud</groupId>
-  <artifactId>a_mvc_mybatis_crud</artifactId>
+  <groupId>sp5</groupId>
+  <artifactId>sp5-chap16-review2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <dependencies>
   
+  <dependencies>
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
@@ -14,11 +14,6 @@
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-jdbc</artifactId>
-	    <version>5.2.24.RELEASE</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-test</artifactId>
 	    <version>5.2.24.RELEASE</version>
 	</dependency>
 	<dependency>
@@ -43,43 +38,22 @@
 	    <version>1.2</version>
 	</dependency>
 	<dependency>
-	    <groupId>org.mybatis</groupId>
-	    <artifactId>mybatis</artifactId>
-	    <version>3.5.11</version>
+	    <groupId>org.hibernate.validator</groupId>
+	    <artifactId>hibernate-validator</artifactId>
+	    <version>6.0.7.Final</version>
 	</dependency>
 	<dependency>
-	    <groupId>org.mybatis</groupId>
-	    <artifactId>mybatis-spring</artifactId>
-	    <version>2.0.7</version>
-	</dependency>  
-	<dependency>
-	    <groupId>org.projectlombok</groupId>
-	    <artifactId>lombok</artifactId>
-	    <version>1.18.28</version>
-	    <scope>provided</scope>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.9.4</version>
 	</dependency>
-	
+	<!-- java8 date/time -->
 	<dependency>
-	    <groupId>log4j</groupId>
-	    <artifactId>log4j</artifactId>
-	    <version>1.2.17</version>
+		<groupId>com.fasterxml.jackson.datatype</groupId>
+		<artifactId>jackson-datatype-jsr310</artifactId>
+		<version>2.9.4</version>
 	</dependency>
-	<dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-log4j12</artifactId>
-	    <version>2.0.6</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-api</artifactId>
-	    <version>2.0.7</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.bgee.log4jdbc-log4j2</groupId>
-	    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
-	    <version>1.16</version>
-	</dependency>
-  
+
   </dependencies>
   
   <build>
